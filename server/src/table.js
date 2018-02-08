@@ -15,7 +15,7 @@ class Table {
     }
 
     getAll() {
-        let sql = `SELECT * FROM ${this.tableName}`;
+        let sql = `SELECT * FROM ${this.tableName} ORDER BY _created DESC`;
         return executeQuery(sql);
     }
 

@@ -16,5 +16,5 @@ let router = Router();
 router.get('/', (req, res) => {
     res.json(people);
 });
-
+ 
 export default router;
