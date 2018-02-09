@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import BlogForm from './blogForm';
 import BlogList from './blogList';
+import Tags from './tags';
 
 class Blogs extends Component {
     constructor(props) {
@@ -34,7 +35,7 @@ class Blogs extends Component {
 
     getBlogs() {
         fetch('/api/blogs/')
-            .then((response) => {
+            .then((response) => { 
                 return response.json();
             }).then((blogs) => {
                 let blogsArray = [];
@@ -76,6 +77,8 @@ class Blogs extends Component {
         return (
             <div className="container">
                     <BlogForm postBlog={(blog) => { this.addBlog(blog); }} />
+
+                    <Tags />
                     
                     <BlogList blogs={this.state.blogs} />
                     

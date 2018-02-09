@@ -6,7 +6,8 @@ class BlogForm extends Component {
 
         this.state = {
             title: '',
-            content: ''
+            content: '',
+            tag: ''
         }; 
     }
 
@@ -21,6 +22,13 @@ class BlogForm extends Component {
             content
         });
     };
+
+    handleTagChange(tag) {
+        this.setState({ 
+            tag
+        });
+    };
+
 
     render() {
         return (
@@ -42,6 +50,12 @@ class BlogForm extends Component {
                     rows="5"
                     placeholder="Tell us how you felt after spending hours debugging only to find the issue was a semicolon.">
                 </textarea>
+                <input
+                    value={this.state.tag}
+                    onChange={(event) => { this.handleTagChange(event.target.value ) }}
+                    className="form-control w-70 m-2 d-inline"
+                    placeholder="#tag"
+                />
                 <button
                     onClick={() => { this.props.postBlog(this.state) }}
                     type="button"

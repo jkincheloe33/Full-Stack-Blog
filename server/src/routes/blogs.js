@@ -3,6 +3,8 @@ import Table from '../table';
 let router = Router();
 
 let blogs = new Table('blogs');
+let tags = new Table('tags');
+let blogTags = new Table('blogTags');
 
 router.get('/:id?', (req, res) => {
     let id = req.params.id;
@@ -22,12 +24,39 @@ router.get('/:id?', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    let row = req.body;
 
-    blogs.insert(row)
+
+    let post = {
+        title: req.body.title,
+        content: req.body.content
+    }
+    
+    let tag = {
+        name: req.body.tag
+    }
+
+    let blogid;
+
+    blogs.insert(post)
         .then((blog) => {
-            res.json(blog);
-            console.log(blog);
+            blogid = blog.id;
+            return tags.find(tag);
+        }).then((tagsArray) => {
+            if (tagsArray.length === 0) {
+                return tags.insert(tag);
+            } else {
+                return tagsArray[0];
+            }
+        }).then((tag) => {
+            return blogTags.insert({
+                blogid: blogid,
+                tagid: tag.id
+            });
+        }).then(() => {
+            let ret = {
+                id: blogid
+            };
+            res.json(ret);
         }).catch((err) => {
             console.log(err);
         });
