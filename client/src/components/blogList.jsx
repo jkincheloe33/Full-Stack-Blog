@@ -4,13 +4,17 @@ import Blog from './blog';
 class BlogList extends Component { 
     render() {
         return (
-            <Fragment>
+            <div className="row">
+
                 {this.props.blogs.map((blog) => {
                     return (
-                        <Blog key={blog.id} blog={blog} />
+                        <div className="animated fadeInUpBig mt-2 mb-2 col-md-6 col-xl-4">
+                            <Blog key={blog.id} blog={blog} />
+                        </div>
                     );
                 })}
-            </Fragment>
+            
+            </div>
         );
     }
 }

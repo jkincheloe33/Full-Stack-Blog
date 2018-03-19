@@ -4,15 +4,7 @@ import Tag from './tag';
 class TagList extends Component {
     render() {
         return (
-            // <Fragment>
-            //     {this.props.tags.map((tag) => {
-            //         return (
-            //             <Tag key={tag.id} tag={tag} />
-            //         );
-            //     })}
-            // </Fragment>
-
-            <nav className="navbar navbar-expand-sm navbar-light bg-light">
+            <nav className="navbar navbar-expand-sm navbar-dark">
                 <a className="navbar-brand" href="#">TAGS:</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

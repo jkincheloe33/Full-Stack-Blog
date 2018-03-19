@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { render } from 'react-dom';
 import TagList from './tagList';
+import * as tagService from '../services/tags';
+
 
 class Tags extends Component {
     constructor(props) {
@@ -29,10 +31,8 @@ class Tags extends Component {
     }
 
     getTags() {
-        fetch('/api/tags/')
-            .then((response) => { 
-                return response.json();
-            }).then((tags) => {
+        tagService.all()
+            .then((tags) => {
                 let tagsArray = [];
                 for (let i = 0; i < tags.length; i++) {
                     tagsArray.push({
@@ -44,21 +44,20 @@ class Tags extends Component {
                 this.setState({
                     tags: tagsArray
                 });
-
-                console.log(this.state.tags);
-
             }).catch((err) => {
                 console.log(err);
             });
+            console.log(this.state.tags);
+
     }
 
     render() {
         return (
             
-            <Fragment>
+            <div className="tags-container">
                 <TagList tags={this.state.tags} />
                 
-            </Fragment>
+            </div>
         );
     }
 }

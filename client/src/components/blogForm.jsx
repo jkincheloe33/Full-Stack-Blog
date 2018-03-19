@@ -32,7 +32,7 @@ class BlogForm extends Component {
 
     render() {
         return (
-            <form className="card p-3 m-1 bg-alert-primary d-block">
+            <form className="card p-3 m-1 bg-alert-primary d-block form-container">
                 <label
                     htmlFor="chirp-input"
                     className="d-block m-2">Create a Blog:

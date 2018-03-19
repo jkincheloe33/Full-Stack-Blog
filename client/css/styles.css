@@ -1,6 +1,159 @@
+html, body {
+    font-family: 'Open Sans', sans-serif;
+}
 
+/************************************** 
+*
+* NAVIGATION
+*
+***************************************/
+
+.nav-container {
+    background-color: rgba(243, 214, 51, 0);
+    box-shadow: 0px .5px 10px black;
+}
+
+.nav-container.show {
+    background-color: whitesmoke;
+}
+  
+.transition {    
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+.nav-button:hover {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+}
+
+
+
+/************************************** 
+*
+* JUMBOTRON
+*
+***************************************/
 
 .jumbotron-header {
-    background-image: url('https://www.freewebheaders.com/wordpress/wp-content/gallery/corks-headers/wine-bottle-cork-covers-blog-header.jpg');
-    background-size: cover;
+    background: linear-gradient(
+        rgba(243, 214, 51, 0.219), 
+        rgba(243, 214, 51, 0.219)
+      ),
+      url('http://deskbg.com/i/c/1440x900/wpp/21/21651/goat-mountains-desktop-background.jpg');      
+      background-size: cover;
+      height: 75vh;
+      position: relative;
 }
+
+.header-container {
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.jumbotron-header h1, .jumbotron-header p {
+    text-align: center;
+    color: #fff;
+}
+
+.jumbotron-header h1 {
+    font-weight: 700;
+}
+
+/************************************** 
+*
+* MAIN BODY
+*
+***************************************/
+
+.content-container {
+    margin: 0;
+    padding: 40px;
+    width: 100%;
+}
+
+.form-container {
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.600), 
+        rgba(255, 255, 255, 0.600)
+      );
+}
+
+.blog-div {
+    color: black;
+}
+
+.blog-title {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(243, 214, 51);
+}
+
+.tags-container {
+    background-color: transparent;
+    border: 1px solid rgb(243, 214, 51);
+    border-radius: 30px;
+}
+
+/************************************** 
+*
+* EMPLOYEE HEADER
+*
+***************************************/
+
+.employee-header {
+    background: linear-gradient(
+        rgba(243, 214, 51, 0.219), 
+        rgba(243, 214, 51, 0.219)
+      ),
+      url('http://1.bp.blogspot.com/--TkMS96H78o/UeLkGoP_KfI/AAAAAAAAHQA/NUNkjcNFtiw/s1600/2013_Blog_190_Mount_Evans_Goats__0019.jpg');      
+      background-size: cover;
+      height: 100vh;
+      position: relative;
+}
+
+.employee-header h1{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.856);
+    font-weight: 700;
+}
+
+/************************************** 
+*
+* EMPLOYEES
+*
+***************************************/
+
+.employee-title {
+        position: relative;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.856);
+}
+
+.employee-title h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+

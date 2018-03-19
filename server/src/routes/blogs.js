@@ -10,27 +10,27 @@ router.get('/:id?', (req, res) => {
     let id = req.params.id;
 
     if (!id) {
-    blogs.getAll()
-        .then((blogs) => {
-            res.json(blogs);
-        });
-    
+        blogs.getAll()
+            .then((blogs) => {
+                res.json(blogs);
+            });
+
     } else {
         blogs.getOne(id)
             .then((blog) => {
                 res.json(blog);
-        });
+            });
     }
 });
 
 router.post('/', (req, res) => {
-
+    console.log('inside of post');
 
     let post = {
         title: req.body.title,
         content: req.body.content
     }
-    
+
     let tag = {
         name: req.body.tag
     }
@@ -67,7 +67,7 @@ router.delete('/:id', (req, res) => {
 
     blogs.delete(id)
         .then((blog) => {
-            res.json(blog);    
+            res.json(blog);
         }).catch((err) => {
             console.log(err);
         });
@@ -75,11 +75,18 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
     let id = req.params.id;
-    let row = req.body;
+    let post = {
+        title: req.body.title,
+        content: req.body.content
+    }
 
-    blogs.update(id, row)
+    let tag = {
+        name: req.body.tag
+    }
+
+    blogs.update(id, post)
         .then((blog) => {
-            res.json(blog);
+            res.sendStatus(201);
         }).catch((err) => {
             console.log(err);
         });
@@ -88,5 +95,5 @@ router.put('/:id', (req, res) => {
 
 
 
- 
+
 export default router;
